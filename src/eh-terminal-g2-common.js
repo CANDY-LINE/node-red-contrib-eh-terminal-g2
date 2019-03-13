@@ -104,11 +104,11 @@ export class EHTerminalG2PacketParser {
       }
       case 0x0012: {
         // SENSIRION SGPC3 Gas Sensor (TVOC, Ethanol)
-        data.eco2 = { // Environmental CO2 ** NOT YET SUPPROTED **
-          sensorId: sensorId,
-          value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'ppm',
-        };
+        // data.eco2 = { // Environmental CO2 ** NOT YET SUPPROTED **
+        //   sensorId: sensorId,
+        //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
+        //   unit: 'ppm',
+        // };
         i += 4;
         data.tvoc = { // Total Volatile Organic Compounds
           sensorId: sensorId,
@@ -116,17 +116,17 @@ export class EHTerminalG2PacketParser {
           unit: 'ppm',
         };
         i += 4;
-        data.ethanol = { // Ethanol ** DEBUG USE **
-          sensorId: sensorId,
-          value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'ppm',
-        };
+        // data.ethanol = { // Ethanol ** DEBUG USE **
+        //   sensorId: sensorId,
+        //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
+        //   unit: 'ppm',
+        // };
         i += 4;
-        data.h2 = { // H2 ** NOT YET SUPPROTED **
-          sensorId: sensorId,
-          value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'ppm',
-        };
+        // data.h2 = { // H2 ** NOT YET SUPPROTED **
+        //   sensorId: sensorId,
+        //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
+        //   unit: 'ppm',
+        // };
         i += 4;
         break;
       }
@@ -154,21 +154,21 @@ export class EHTerminalG2PacketParser {
       }
       case 0xFFFD: {
         // PMIC SYS Voltage prior to sensing
-        data.pmicSysVoltBef = { // ** NOT YET SUPPROTED **
-          sensorId: sensorId,
-          value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'V',
-        };
+        // data.pmicSysVoltBef = { // ** NOT YET SUPPROTED **
+        //   sensorId: sensorId,
+        //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
+        //   unit: 'V',
+        // };
         i += 4;
         break;
       }
       case 0xFFFE: {
         // PMIC SYS Voltage after sensing
-        data.pmicSysVoltAft = { // ** NOT YET SUPPROTED **
-          sensorId: sensorId,
-          value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'V',
-        };
+        // data.pmicSysVoltAft = { // ** NOT YET SUPPROTED **
+        //   sensorId: sensorId,
+        //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
+        //   unit: 'V',
+        // };
         i += 4;
         break;
       }

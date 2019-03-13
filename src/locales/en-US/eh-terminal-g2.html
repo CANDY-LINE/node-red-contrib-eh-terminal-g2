@@ -98,24 +98,14 @@ You can choose the output message format from the following alternatives.
     <dd>Y-axis accelerometer value in <i>g</i>.</dd>
     <dt>z</dt>
     <dd>Z-axis accelerometer value in <i>g</i>.</dd>
-    <dt>eco2</dt>
-    <dd>Future use.</dd>
     <dt>tvoc</dt>
     <dd>Total Volatile Organic Compounds value in <i>ppm</i>.</dd>
-    <dt>ethanol</dt>
-    <dd>Ethanol value in <i>ppm</i>.</dd>
-    <dt>h2</dt>
-    <dd>Future use.</dd>
     <dt>temperature</dt>
     <dd>Temperature value in <i>degree Celcius</i>.</dd>
     <dt>humidity</dt>
     <dd>Humidity value in <i>%</i>.</dd>
     <dt>battery</dt>
     <dd>Battery voltage in <i>V</i>.</dd>
-    <dt>pmicSysVoltBef</dt>
-    <dd>PMIC SYS voltage prior to sensing in <i>V</i>.</dd>
-    <dt>pmicSysVoltAft</dt>
-    <dd>PMIC SYS voltage after sensing in <i>V</i>.</dd>
   </dl>
 </dd>
 <dt>packet_timestamp<span class="property-type">string</span></dt>
@@ -164,22 +154,7 @@ You can choose the output message format from the following alternatives.
         "value": 0.818359375,
         "unit": "g"
       },
-      "eco2": {
-        "sensorId": 18,
-        "value": 0,
-        "unit": "ppm"
-      },
       "tvoc": {
-        "sensorId": 18,
-        "value": 0,
-        "unit": "ppm"
-      },
-      "ethanol": {
-        "sensorId": 18,
-        "value": 34.080078125,
-        "unit": "ppm"
-      },
-      "h2": {
         "sensorId": 18,
         "value": 0,
         "unit": "ppm"
@@ -198,16 +173,6 @@ You can choose the output message format from the following alternatives.
         "sensorId": 65535,
         "value": 2.515199899673462,
         "unit": "V"
-      },
-      "pmicSysVoltBef": {
-        "sensorId": 65533,
-        "value": 0.15399999916553497,
-        "unit": "V"
-      },
-      "pmicSysVoltAft": {
-        "sensorId": 65534,
-        "value": 0.1467999964952469,
-        "unit": "V"
       }
     },
     "packet_timestamp": "2002-07-03T03:47:53.051750Z",
@@ -220,7 +185,7 @@ You can choose the output message format from the following alternatives.
 <h4>Dashboard Chart Messages</h4>
 <p>
   This format allows the node to emit multiple messages per sensing data, 1 message object for 1 sensing data.
-  EH-Terminal G2 has 13 sensing capabilities so the node will emit 13 messages when receiving a single input message.
+  EH-Terminal G2 has 8 sensing capabilities so the node will emit 8 messages when receiving a single input message.
 </p>
 <dl class="message-properties">
 <dt>topic<span class="property-type">string</span></dt>
