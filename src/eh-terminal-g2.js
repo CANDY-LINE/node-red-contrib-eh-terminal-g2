@@ -30,6 +30,7 @@ export default function(RED) {
       this.ignoreFormatError = n.ignoreFormatError;
       this.parser = new EHTerminalG2PacketParser();
       let formatMessage = (input, output, msg) => {
+        let result;
         switch (this.messageFormat) {
           case 'standard': {
             msg.payload = Object.assign(output, {
@@ -40,21 +41,36 @@ export default function(RED) {
               timestamp: input.timestamp,
               managerId: input.managerId,
             });
+            result = [msg];
             break;
           }
           case 'chart': {
+            result = Object.keys(output.data).map((k) => {
+              return {
+                topic: k,
+                payload: output.data[k].value,
+                mac: input.mac,
+                timestamp: input.timestamp,
+                managerId: input.managerId,
+              };
+            });
             break;
           }
-          default:
+          default: {
+            result = [msg];
+          }
         }
-        return msg;
+        return result;
       };
       this.on('input', (msg) => {
         try {
           let input = msg.payload || {};
           if (input.protocol === 'raw') {
             this.parser.parse(input.payload).then((output) => {
-              this.send(formatMessage(input, output, msg));
+              let result = formatMessage(input, output, msg);
+              result.forEach((r) => {
+                this.send(r);
+              });
             }).catch((err) => {
               if (this.ignoreFormatError && err.message && err.message.indexOf('[FormatError]') === 0) {
                 return;

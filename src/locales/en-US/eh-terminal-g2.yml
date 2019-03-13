@@ -5,4 +5,4 @@ eh-terminal-g2:
     ignoreFormatError: Ignore Unsupported Format Error
   messageFormat:
     standard: Standard Single Message
-    chart: Dashboard Charts Message Array
+    chart: Dashboard Charts Messages
