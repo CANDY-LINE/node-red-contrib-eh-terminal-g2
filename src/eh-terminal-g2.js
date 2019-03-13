@@ -26,22 +26,35 @@ export default function(RED) {
     constructor(n) {
       RED.nodes.createNode(this, n);
       this.name = n.name;
+      this.messageFormat = n.messageFormat || 'standard';
       this.ignoreFormatError = n.ignoreFormatError;
       this.parser = new EHTerminalG2PacketParser();
+      let formatMessage = (input, output, msg) => {
+        switch (this.messageFormat) {
+          case 'standard': {
+            msg.payload = Object.assign(output, {
+              /*jshint camelcase: false */
+              'packet_timestamp': input.packet_timestamp,
+              /*jshint camelcase: true */
+              mac: input.mac,
+              timestamp: input.timestamp,
+              managerId: input.managerId,
+            });
+            break;
+          }
+          case 'chart': {
+            break;
+          }
+          default:
+        }
+        return msg;
+      };
       this.on('input', (msg) => {
         try {
-          let payload = msg.payload || {};
-          if (payload.protocol === 'raw') {
-            this.parser.parse(payload.payload).then((output) => {
-              msg.payload = Object.assign(output, {
-                /*jshint camelcase: false */
-                'packet_timestamp': payload.packet_timestamp,
-                /*jshint camelcase: true */
-                mac: payload.mac,
-                timestamp: payload.timestamp,
-                managerId: payload.managerId,
-              });
-              this.send(msg);
+          let input = msg.payload || {};
+          if (input.protocol === 'raw') {
+            this.parser.parse(input.payload).then((output) => {
+              this.send(formatMessage(input, output, msg));
             }).catch((err) => {
               if (this.ignoreFormatError && err.message && err.message.indexOf('[FormatError]') === 0) {
                 return;
@@ -49,7 +62,7 @@ export default function(RED) {
               this.error(err);
             });
           } else if (!this.ignoreFormatError) {
-            this.error(`[FormatError] Unsupported protocol => ${payload.protocol}`);
+            this.error(`[FormatError] Unsupported protocol => ${input.protocol}`);
           }
         } catch (e) {
           this.error(e);

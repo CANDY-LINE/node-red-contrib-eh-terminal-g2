@@ -1,4 +1,8 @@
 # Message Resources for English (fallback language)
 eh-terminal-g2:
   label:
+    messageFormat: Output
     ignoreFormatError: Ignore Unsupported Format Error
+  messageFormat:
+    standard: Standard Single Message
+    chart: Dashboard Charts Message Array
