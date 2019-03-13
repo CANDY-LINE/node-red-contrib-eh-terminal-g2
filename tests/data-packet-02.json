@@ -1,0 +1,18 @@
+{
+  "event":"data",
+  "packet_timestamp":"2018-03-19T12:51:57.340Z",
+  "timestamp":"2018-03-19T12:51:57.560123Z",
+  "rate":30000,
+  "mac":"00-11-22-33-44-55-66-77",
+  "sample_size":16,
+  "channel_str":"temperature",
+  "samples":[
+    1870
+  ],
+  "num_samples":1,
+  "channel":[
+    5
+  ],
+  "managerId":"manager-identifier",
+  "protocol":"oap"
+}

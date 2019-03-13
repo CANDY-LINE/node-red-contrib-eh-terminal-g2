@@ -1,0 +1,4 @@
+# Message Resources for English (fallback language)
+eh-terminal-g2:
+  label:
+    ignoreFormatError: Ignore Unsupported Format Error
