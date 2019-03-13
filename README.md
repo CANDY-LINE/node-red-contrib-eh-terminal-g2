@@ -4,7 +4,7 @@ node-red-contrib-eh-terminal-g2
 [![GitHub release](https://img.shields.io/github/release/CANDY-LINE/node-red-contrib-eh-terminal-g2.svg)](https://github.com/CANDY-LINE/node-red-contrib-eh-terminal-g2/releases/latest)
 [![master Build Status](https://travis-ci.org/CANDY-LINE/node-red-contrib-eh-terminal-g2.svg?branch=master)](https://travis-ci.org/CANDY-LINE/node-red-contrib-eh-terminal-g2/)
 
-Node-RED nodes for [m-pression EH-Terminal G2 Wireless Sensor Device](https://www.m-pression.com/solutions/boards/iot-wearables) by [Macnica](https://www.macnica.com/), which supports [Analog Devices' SmartMesh IP](https://www.analog.com/en/products/rf-microwave/wireless-sensor-networks/smartmesh-ip.html) wireless technology.
+Node-RED node for [m-pression EH-Terminal G2 Wireless Sensor Device](https://www.m-pression.com/solutions/boards/iot-wearables) by [Macnica](https://www.macnica.com/), which supports [Analog Devices' SmartMesh IP](https://www.analog.com/en/products/rf-microwave/wireless-sensor-networks/smartmesh-ip.html) wireless technology.
 
 ## Example Flow
 
@@ -36,8 +36,6 @@ Then restart Node-RED process.
 
 ### Uninstallation
 
-The following command uninstalls SmartMesh SDK python executables/libraries as well as this node package.
-
 ```
 cd ~/.node-red
 sudo npm uninstall --unsafe-perm node-red-contrib-eh-terminal-g2
@@ -65,8 +63,6 @@ sudo systemctl restart candy-red
 cd /opt/candy-red/.node-red
 sudo npm uninstall --unsafe-perm node-red-contrib-eh-terminal-g2
 ```
-
-The above command uninstalls SmartMesh SDK python executables/libraries as well as this node package.
 
 # Appendix
 
