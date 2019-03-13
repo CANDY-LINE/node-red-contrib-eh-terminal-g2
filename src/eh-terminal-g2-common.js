@@ -116,7 +116,7 @@ export class EHTerminalG2PacketParser {
           unit: 'ppm',
         };
         i += 4;
-        data.ethanol = { // Ethanol
+        data.ethanol = { // Ethanol ** DEBUG USE **
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
           unit: 'ppm',
@@ -154,7 +154,7 @@ export class EHTerminalG2PacketParser {
       }
       case 0xFFFD: {
         // PMIC SYS Voltage prior to sensing
-        data.pmicSysVoltBef = {
+        data.pmicSysVoltBef = { // ** NOT YET SUPPROTED **
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
           unit: 'V',
@@ -164,7 +164,7 @@ export class EHTerminalG2PacketParser {
       }
       case 0xFFFE: {
         // PMIC SYS Voltage after sensing
-        data.pmicSysVoltAft = {
+        data.pmicSysVoltAft = { // ** NOT YET SUPPROTED **
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
           unit: 'V',
