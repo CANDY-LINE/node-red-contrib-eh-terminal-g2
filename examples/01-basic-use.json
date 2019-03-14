@@ -1,0 +1,336 @@
+[
+    {
+        "id": "99c94811.ff8588",
+        "type": "tab",
+        "label": "EH-Terminal Example",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4a324c4d.5cbdec",
+        "type": "debug",
+        "z": "99c94811.ff8588",
+        "name": "OAP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 630,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5380ec58.84d544",
+        "type": "catch",
+        "z": "99c94811.ff8588",
+        "name": "",
+        "scope": null,
+        "x": 180,
+        "y": 500,
+        "wires": [
+            [
+                "41094b73.edb964"
+            ]
+        ]
+    },
+    {
+        "id": "41094b73.edb964",
+        "type": "debug",
+        "z": "99c94811.ff8588",
+        "name": "Error",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 370,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "d94eb7c9.82aa1",
+        "type": "SmartMesh in",
+        "z": "99c94811.ff8588",
+        "name": "",
+        "subscriptionType": "data",
+        "smartMeshManager": "db283146.931228",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "cabb242c.4c4df",
+                "e575d3f.bf8ff3"
+            ]
+        ]
+    },
+    {
+        "id": "ff57ee6b.4709d8",
+        "type": "debug",
+        "z": "99c94811.ff8588",
+        "name": "Notifications",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "x": 390,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "7eec551f.90cd8c",
+        "type": "SmartMesh in",
+        "z": "99c94811.ff8588",
+        "name": "",
+        "subscriptionType": "notification",
+        "smartMeshManager": "db283146.931228",
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "ff57ee6b.4709d8"
+            ]
+        ]
+    },
+    {
+        "id": "cabb242c.4c4df",
+        "type": "EH-Terminal G2",
+        "z": "99c94811.ff8588",
+        "name": "",
+        "messageFormat": "chart",
+        "ignoreFormatError": true,
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "e08c4291.ea07",
+                "3f8dc414.9eb324"
+            ]
+        ]
+    },
+    {
+        "id": "e08c4291.ea07",
+        "type": "debug",
+        "z": "99c94811.ff8588",
+        "name": "Transformed Messages",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 690,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "3f8dc414.9eb324",
+        "type": "switch",
+        "z": "99c94811.ff8588",
+        "name": "Dispatch messages as per MAC",
+        "property": "mac",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "00-11-22-33-44-55-66-77",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "00-11-22-33-44-55-66-88",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "281c0b40.e806bc"
+            ],
+            [
+                "b799482d.521278"
+            ]
+        ]
+    },
+    {
+        "id": "281c0b40.e806bc",
+        "type": "ui_chart",
+        "z": "99c94811.ff8588",
+        "name": "",
+        "group": "e980adaa.e37648",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Sensor Data Chart (MAC: 66-77)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 750,
+        "y": 280,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e575d3f.bf8ff3",
+        "type": "switch",
+        "z": "99c94811.ff8588",
+        "name": "Filter OAP messages",
+        "property": "protocol",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "oap",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 1,
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "4a324c4d.5cbdec"
+            ]
+        ]
+    },
+    {
+        "id": "644fa290.e15d14",
+        "type": "comment",
+        "z": "99c94811.ff8588",
+        "name": "SmartMesh network event notifications",
+        "info": "",
+        "x": 270,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "39b0d96e.b309de",
+        "type": "comment",
+        "z": "99c94811.ff8588",
+        "name": "Node Errors",
+        "info": "",
+        "x": 190,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "1963728f.b75ddd",
+        "type": "comment",
+        "z": "99c94811.ff8588",
+        "name": "SmartMesh mote data processing",
+        "info": "",
+        "x": 260,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "440d94b7.f832b4",
+        "type": "comment",
+        "z": "99c94811.ff8588",
+        "name": "EH-Terminal Data Transformation",
+        "info": "",
+        "x": 450,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b799482d.521278",
+        "type": "ui_chart",
+        "z": "99c94811.ff8588",
+        "name": "",
+        "group": "e980adaa.e37648",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Sensor Data Chart (MAC: 66-88)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 750,
+        "y": 320,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "db283146.931228",
+        "type": "SmartMesh manager",
+        "z": "",
+        "enabled": true,
+        "serialport": "/dev/DC2274A-A.API",
+        "identifier": "manager1",
+        "redirectSmartMeshManagerLog": true
+    },
+    {
+        "id": "e980adaa.e37648",
+        "type": "ui_group",
+        "z": "",
+        "name": "EH-Terminal G2",
+        "tab": "1787bab0.b29595",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "1787bab0.b29595",
+        "type": "ui_tab",
+        "z": "",
+        "name": "EH-Terminal G2",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

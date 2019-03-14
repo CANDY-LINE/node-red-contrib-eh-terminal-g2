@@ -10,7 +10,9 @@ Node-RED node for [m-pression EH-Terminal G2 Wireless Sensor Device](https://www
 
 The bundled example flow provides the following demonstrations:
 
-TBW
+ - Transform a raw protocol message from EH-Terminal G2 into live chart values to draw a chart with UI Chart node
+ - Print SmartMesh notification events
+ - Print OAP message if any
 
 # Prerequisites
 
