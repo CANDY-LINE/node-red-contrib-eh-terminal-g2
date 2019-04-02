@@ -6,6 +6,19 @@ node-red-contrib-eh-terminal-g2
 
 Node-RED node for [m-pression EH-Terminal G2 Wireless Sensor Device](https://www.m-pression.com/solutions/boards/iot-wearables) by [Macnica](https://www.macnica.com/), which supports [Analog Devices' SmartMesh IP](https://www.analog.com/en/products/rf-microwave/wireless-sensor-networks/smartmesh-ip.html) wireless technology.
 
+![Macnica EH-Terminal G2](images/macnica-EH-Terminal_G2_w500.png)
+
+This device has the following sensors and emits all the sensor data every 30 seconds.
+
+1. Illuminance (lux)
+1. Temperature (degree Celsius) and Humidity (%)
+1. 3-axis Accelerometer (g)
+1. Battery voltage (V)
+
+## Where to buy EH-Terminal G2
+
+Let's ask [Macnica](https://www.m-pression.com/contact/inquiry)!
+
 ## Example Flow
 
 The bundled example flow provides the following demonstrations:
@@ -18,11 +31,40 @@ The bundled example flow provides the following demonstrations:
 
 ## Hardware
 
-TBW
+- DC2274A-A SmartMesh IP™ USB Manager dongle, or its equivalent device (SmartMesh Master mote) having a serialport CLI
 
 ## How to use
 
-TBW
+In order to use EH-Terminal G2 with your SmartMesh IP™ USB Manager dongle, you might need some work.
+
+1. Change Network ID on your Manager
+1. Restart the network
+
+### Change Network ID on your Manager
+
+Connect SmartMesh IP™ USB Manager dongle to your computer and start a terminal session to the USB serial port. Here is a linux/macOS example command using `screen`.
+
+```
+$ screen /dev/ttyUSBX 9600
+```
+Then login to the Manager. We assume your USB Manager configuration is identical to the factory default.
+
+```
+> login user
+> set config netid 1723
+```
+
+The Network ID `1723` is the factory default Network ID stored in EH-Terminal G2.
+
+### Restart the network
+
+In order to take effect the change, the network should be restarted.
+
+```
+> reset system
+```
+
+Exit the `screen` terminal by hitting `Ctrl A` then `Ctrl Z`.
 
 # How to install
 
