@@ -81,7 +81,7 @@ Exit the `screen` terminal by hitting `Ctrl A` then `Ctrl Z`.
 Use `Manage Palette` dialog in the browser editor or run the following commands:
 ```
 cd ~/.node-red
-npm install node-red-contrib-eh-terminal-g2
+npm install @candy-line/node-red-contrib-eh-terminal-g2
 ```
 
 Then restart Node-RED process.
@@ -90,7 +90,7 @@ Then restart Node-RED process.
 
 ```
 cd ~/.node-red
-sudo npm uninstall --unsafe-perm node-red-contrib-eh-terminal-g2
+sudo npm uninstall --unsafe-perm @candy-line/node-red-contrib-eh-terminal-g2
 ```
 
 ## CANDY RED users
@@ -98,7 +98,7 @@ sudo npm uninstall --unsafe-perm node-red-contrib-eh-terminal-g2
 Use `Manage Palette` dialog in the browser editor or run the following commands:
 ```
 cd /opt/candy-red/.node-red
-sudo npm install --unsafe-perm node-red-contrib-eh-terminal-g2
+sudo npm install --unsafe-perm @candy-line/node-red-contrib-eh-terminal-g2
 ```
 
 Then restart `candy-red` service.
@@ -113,7 +113,7 @@ sudo systemctl restart candy-red
 
 ```
 cd /opt/candy-red/.node-red
-sudo npm uninstall --unsafe-perm node-red-contrib-eh-terminal-g2
+sudo npm uninstall --unsafe-perm @candy-line/node-red-contrib-eh-terminal-g2
 ```
 
 # Appendix
