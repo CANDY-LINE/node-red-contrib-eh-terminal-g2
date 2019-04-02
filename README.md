@@ -12,7 +12,7 @@ This device has the following sensors and emits all the sensor data every 30 sec
 
 1. Illuminance (lux)
 1. Temperature (degree Celsius) and Humidity (%)
-1. 3-axis Accelerometer (g)
+1. 3-axis Accelerometer (_g_)
 1. Battery voltage (V)
 
 This node parse and translate the raw packets into easy-to-use JSON objects. The node supports Node-RED Dashboard [Chart node data format](https://github.com/node-red/node-red-dashboard/blob/master/Charts.md), which means you can quickly plot the device sensor data with the Chart node without any data transformation.
@@ -62,7 +62,8 @@ Then login to the Manager. We assume your USB Manager configuration is identical
 > set config netid 1723
 ```
 
-The Network ID `1723` is the factory default Network ID stored in EH-Terminal G2.
+The Network ID `1723` is the factory default Network ID on EH-Terminal G2.
+The configuration change persists even after reboot so you don't have to repeat the process once you modify it.
 
 ### Restart the network
 
@@ -133,6 +134,9 @@ $ NODE_ENV=development npm pack
 - Node Icon ... [CC BY-ND 3.0](https://creativecommons.org/licenses/by-nd/3.0/)
 
 # Revision History
+
+* 1.0.1
+  - Add `node-red` keyword
 
 * 1.0.0
   - Initial Release
