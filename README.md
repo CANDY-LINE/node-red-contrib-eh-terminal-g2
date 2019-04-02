@@ -15,6 +15,8 @@ This device has the following sensors and emits all the sensor data every 30 sec
 1. 3-axis Accelerometer (g)
 1. Battery voltage (V)
 
+This node parse and translate the raw packets into easy-to-use JSON objects. The node supports Node-RED Dashboard [Chart node data format](https://github.com/node-red/node-red-dashboard/blob/master/Charts.md), which means you can quickly plot the device sensor data with the Chart node without any data transformation.
+
 ## Where to buy EH-Terminal G2
 
 Let's ask [Macnica](https://www.m-pression.com/contact/inquiry)!
@@ -28,6 +30,12 @@ The bundled example flow provides the following demonstrations:
  - Print OAP message if any
 
 # Prerequisites
+
+## Software
+
+The following node is required to receive SmartMesh data packets. The example node relies on it as well.
+
+* [node-red-contrib-smartmesh](https://flows.nodered.org/node/node-red-contrib-smartmesh) node
 
 ## Hardware
 
