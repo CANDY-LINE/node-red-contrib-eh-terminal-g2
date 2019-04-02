@@ -1,6 +1,6 @@
 {
   "name": "@candy-line/node-red-contrib-eh-terminal-g2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node-RED node for m-pression EH-Terminal G2 SmartMesh Wireless Sensor Device by Macnica",
   "repository": {
     "type": "git",
@@ -17,18 +17,15 @@
     "clean": "gulp clean",
     "prepublish": "gulp build"
   },
-  "os": [
-    "!win32"
-  ],
   "publishConfig": {
     "access": "public"
   },
   "homepage": "https://github.com/CANDY-LINE/node-red-contrib-eh-terminal-g2#readme",
   "keywords": [
+    "node-red",
     "macnica",
     "mpression",
     "m-pression",
-    "EH-Terminal",
     "EH-Terminal G2",
     "smartmesh",
     "dust networks",
