@@ -17,18 +17,15 @@
     "clean": "gulp clean",
     "prepublish": "gulp build"
   },
-  "os": [
-    "!win32"
-  ],
   "publishConfig": {
     "access": "public"
   },
   "homepage": "https://github.com/CANDY-LINE/node-red-contrib-eh-terminal-g2#readme",
   "keywords": [
+    "node-red",
     "macnica",
     "mpression",
     "m-pression",
-    "EH-Terminal",
     "EH-Terminal G2",
     "smartmesh",
     "dust networks",
