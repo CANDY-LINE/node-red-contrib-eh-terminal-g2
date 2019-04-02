@@ -6,6 +6,16 @@
     </label>
     <input type='text' id='node-input-name' data-i18n='[placeholder]node-red:common.label.name'>
   </div>
+  <div class='form-row'>
+    <label for='node-input-messageFormat'>
+      <i class='fa fa-feed'></i>
+      <span data-i18n='eh-terminal-g2.label.messageFormat'></span>
+    </label>
+    <select type='text' id='node-input-messageFormat' style='width: 70%;'>
+      <option value='standard' data-i18n='eh-terminal-g2.messageFormat.standard'></option>
+      <option value='chart' data-i18n='eh-terminal-g2.messageFormat.chart'></option>
+    </select>
+  </div>
   <div class="form-row">
     <label>&nbsp;</label>
     <input type="checkbox" id="node-input-ignoreFormatError" style="display: inline-block; width: auto; vertical-align: top;">
@@ -20,6 +30,7 @@
       color:"#d53eda",
       defaults:{
         name: { value: "" },
+        messageFormat:{ value: "standard" },
         ignoreFormatError: { value: true },
       },
       inputs: 1,

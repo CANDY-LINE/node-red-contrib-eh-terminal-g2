@@ -20,6 +20,9 @@
   "os": [
     "!win32"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/CANDY-LINE/node-red-contrib-eh-terminal-g2#readme",
   "keywords": [
     "macnica",

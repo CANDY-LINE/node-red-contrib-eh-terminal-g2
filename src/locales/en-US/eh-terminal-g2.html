@@ -8,7 +8,7 @@
   so to make things simpler when there are various SmartMesh devices
   which speak <code>OAP</code> and/or other <code>raw</code> packet protocol
   than EH-Terminal G2 on the same network.
-  However, you can have it emit the error through <i>catch</i> node
+  However, you can have it emit the error through <i>catch all</i> node
   by unchecking <code>Ignore Unsupported Format Error</code> checkbox.
 </p>
 
@@ -60,10 +60,22 @@
 </dl>
 
 <h3>Outputs</h3>
-<h4>Notification Data</h4>
 <p>
-This node emits a message coming from an EH-Terminal G2 device over a SmartMesh sensor network.
-Each message has the following structure.
+This node emits a message containing sensor data coming from an EH-Terminal G2 device over a SmartMesh sensor network.
+You can choose the output message format from the following alternatives.
+<ul>
+  <li><code>Standard Single Message</code>,
+    which is a single message object with all sensor data information.</li>
+  <li><code>Dashboard Chart Messages</code>,
+    which are a series of message object divided into each sensor data type
+    and are applicable for <i>chart</i> node to draw chart</li>
+</ul>
+</p>
+
+<h4>Standard Single Message</h4>
+<p>
+  The sensor data information is assigned to <code>payload</code> property in a message object.
+  The <code>payload</code> property value has the following structure.
 </p>
 <dl class="message-properties">
 <dt>messageId<span class="property-type">int</span></dt>
@@ -79,31 +91,21 @@ Each message has the following structure.
   A key-value set containing sensor data. The following keys are available.
   <dl>
     <dt>illuminance</dt>
-    <dd>Illuminance value in lux.</dd>
+    <dd>Illuminance value in <i>lux</i>.</dd>
     <dt>x</dt>
     <dd>X-axis accelerometer value in <i>g</i>.</dd>
     <dt>y</dt>
     <dd>Y-axis accelerometer value in <i>g</i>.</dd>
     <dt>z</dt>
     <dd>Z-axis accelerometer value in <i>g</i>.</dd>
-    <dt>eco2</dt>
-    <dd>Future use.</dd>
     <dt>tvoc</dt>
-    <dd>Total Volatile Organic Compounds value in ppm.</dd>
-    <dt>ethanol</dt>
-    <dd>Ethanol value in ppm.</dd>
-    <dt>h2</dt>
-    <dd>Future use.</dd>
+    <dd>Total Volatile Organic Compounds value in <i>ppm</i>.</dd>
     <dt>temperature</dt>
-    <dd>Temperature value in degree Celcius.</dd>
+    <dd>Temperature value in <i>degree Celcius</i>.</dd>
     <dt>humidity</dt>
-    <dd>Humidity value in %.</dd>
+    <dd>Humidity value in <i>%</i>.</dd>
     <dt>battery</dt>
-    <dd>Battery voltage in V.</dd>
-    <dt>pmicSysVoltBef</dt>
-    <dd>PMIC SYS voltage prior to sensing in V.</dd>
-    <dt>pmicSysVoltAft</dt>
-    <dd>PMIC SYS voltage after sensing in V.</dd>
+    <dd>Battery voltage in <i>V</i>.</dd>
   </dl>
 </dd>
 <dt>packet_timestamp<span class="property-type">string</span></dt>
@@ -124,6 +126,9 @@ Each message has the following structure.
 </dd>
 </dl>
 
+<p>
+  The <code>message.payload</code> object example is shown below.
+</p>
 <pre>
   {
     "messageId": 1,
@@ -149,22 +154,7 @@ Each message has the following structure.
         "value": 0.818359375,
         "unit": "g"
       },
-      "eco2": {
-        "sensorId": 18,
-        "value": 0,
-        "unit": "ppm"
-      },
       "tvoc": {
-        "sensorId": 18,
-        "value": 0,
-        "unit": "ppm"
-      },
-      "ethanol": {
-        "sensorId": 18,
-        "value": 34.080078125,
-        "unit": "ppm"
-      },
-      "h2": {
         "sensorId": 18,
         "value": 0,
         "unit": "ppm"
@@ -183,22 +173,52 @@ Each message has the following structure.
         "sensorId": 65535,
         "value": 2.515199899673462,
         "unit": "V"
-      },
-      "pmicSysVoltBef": {
-        "sensorId": 65533,
-        "value": 0.15399999916553497,
-        "unit": "V"
-      },
-      "pmicSysVoltAft": {
-        "sensorId": 65534,
-        "value": 0.1467999964952469,
-        "unit": "V"
       }
     },
     "packet_timestamp": "2002-07-03T03:47:53.051750Z",
     "mac":"00-11-22-33-44-55-66-77",
     "timestamp":"2019-03-12T01:59:06.087889Z",
     "managerId":"manager1"
+  }
+</pre>
+
+<h4>Dashboard Chart Messages</h4>
+<p>
+  This format allows the node to emit multiple messages per sensing data, 1 message object for 1 sensing data.
+  EH-Terminal G2 has 8 sensing capabilities so the node will emit 8 messages when receiving a single input message.
+</p>
+<dl class="message-properties">
+<dt>topic<span class="property-type">string</span></dt>
+<dd>
+  Type of the sensing data.
+</dd>
+<dt>payload<span class="property-type">int|float|string</span></dt>
+<dd>
+  Value of the sensing data.
+</dd>
+<dt>mac<span class="property-type">string</span></dt>
+<dd>
+  MAC address of the originator mote.
+</dd>
+<dt>timestamp<span class="property-type">string</span></dt>
+<dd>
+  Received timestamp text in ISO8601 format.
+</dd>
+<dt>managerId<span class="property-type">string</span></dt>
+<dd>
+  The source SmartMesh IP USB Manager ID.
+</dd>
+</dl>
+<p>
+  The entire <code>message</code> object example is shown below.
+</p>
+<pre>
+  {
+    "topic": "humidity",
+    "payload": 58.242000579833984,
+    "mac": "00-11-22-33-44-55-66-77",
+    "timestamp": "2019-03-13T08:16:56.283704Z",
+    "managerId": "manager1"
   }
 </pre>
 </script>

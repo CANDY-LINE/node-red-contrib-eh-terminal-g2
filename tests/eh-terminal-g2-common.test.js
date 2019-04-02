@@ -36,7 +36,7 @@ describe('EHTerminalG2PacketParser', () => {
     it('should parse the data packet from EH-Terminal G2 successfully', (done) => {
 			let message = require('./data-packet-01.json');
 			parser.parse(message.payload).then((output) => {
-				assert.equal(13, Object.keys(output.data).length);
+				assert.equal(8, Object.keys(output.data).length);
 				done();
 			}).catch((err) => {
 				done(err);
@@ -56,7 +56,7 @@ describe('EHTerminalG2PacketParser', () => {
 		it('should parse the Buffer object data from EH-Terminal G2 successfully', (done) => {
 			let message = require('./data-packet-03.json');
 			parser.parse(message.payload).then((output) => {
-				assert.equal(13, Object.keys(output.data).length);
+				assert.equal(8, Object.keys(output.data).length);
 				done();
 			}).catch((err) => {
 				done(err);
