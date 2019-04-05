@@ -135,6 +135,9 @@ $ NODE_ENV=development npm pack
 
 # Revision History
 
+* 1.0.2
+  - Strip unit property as it's redundant from the standard message
+
 * 1.0.1
   - Add `node-red` keyword
 
