@@ -15,7 +15,7 @@ This device has the following sensors and emits all the sensor data every 30 sec
 1. 3-axis Accelerometer (_g_)
 1. Battery voltage (V)
 
-This node parse and translate the raw packets into easy-to-use JSON objects. The node supports Node-RED Dashboard [Chart node data format](https://github.com/node-red/node-red-dashboard/blob/master/Charts.md), which means you can quickly plot the device sensor data with the Chart node without any data transformation.
+This node parses and translates the raw packets into easy-to-use JSON objects. The node supports Node-RED Dashboard [Chart node data format](https://github.com/node-red/node-red-dashboard/blob/master/Charts.md), which means you can quickly plot the device sensor data with the Chart node without any data transformation.
 
 ## Where to buy EH-Terminal G2
 
