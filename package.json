@@ -1,6 +1,6 @@
 {
   "name": "@candy-line/node-red-contrib-eh-terminal-g2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Node-RED node for m-pression EH-Terminal G2 SmartMesh Wireless Sensor Device by Macnica",
   "repository": {
     "type": "git",

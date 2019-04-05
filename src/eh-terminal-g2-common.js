@@ -81,7 +81,6 @@ export class EHTerminalG2PacketParser {
         data.illuminance = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'lux',
         };
         i += 4;
         break;
@@ -91,13 +90,11 @@ export class EHTerminalG2PacketParser {
         data.temperature = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'C',
         };
         i += 4;
         data.humidity = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: '%',
         };
         i += 4;
         break;
@@ -107,25 +104,21 @@ export class EHTerminalG2PacketParser {
         // data.eco2 = { // Environmental CO2 ** NOT YET SUPPROTED **
         //   sensorId: sensorId,
         //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-        //   unit: 'ppm',
         // };
         i += 4;
         data.tvoc = { // Total Volatile Organic Compounds
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'ppm',
         };
         i += 4;
         // data.ethanol = { // Ethanol ** DEBUG USE **
         //   sensorId: sensorId,
         //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-        //   unit: 'ppm',
         // };
         i += 4;
         // data.h2 = { // H2 ** NOT YET SUPPROTED **
         //   sensorId: sensorId,
         //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-        //   unit: 'ppm',
         // };
         i += 4;
         break;
@@ -135,19 +128,16 @@ export class EHTerminalG2PacketParser {
         data.x = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'g',
         };
         i += 4;
         data.y = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'g',
         };
         i += 4;
         data.z = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'g',
         };
         i += 4;
         break;
@@ -157,7 +147,6 @@ export class EHTerminalG2PacketParser {
         // data.pmicSysVoltBef = { // ** NOT YET SUPPROTED **
         //   sensorId: sensorId,
         //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-        //   unit: 'V',
         // };
         i += 4;
         break;
@@ -167,7 +156,6 @@ export class EHTerminalG2PacketParser {
         // data.pmicSysVoltAft = { // ** NOT YET SUPPROTED **
         //   sensorId: sensorId,
         //   value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-        //   unit: 'V',
         // };
         i += 4;
         break;
@@ -177,7 +165,6 @@ export class EHTerminalG2PacketParser {
         data.battery = {
           sensorId: sensorId,
           value: dataBuf.readFloatLE(i), // LE Float (4bytes),
-          unit: 'V',
         };
         i += 4;
         break;
