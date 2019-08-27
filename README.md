@@ -4,7 +4,7 @@ node-red-contrib-eh-terminal-g2
 [![GitHub release](https://img.shields.io/github/release/CANDY-LINE/node-red-contrib-eh-terminal-g2.svg)](https://github.com/CANDY-LINE/node-red-contrib-eh-terminal-g2/releases/latest)
 [![master Build Status](https://travis-ci.org/CANDY-LINE/node-red-contrib-eh-terminal-g2.svg?branch=master)](https://travis-ci.org/CANDY-LINE/node-red-contrib-eh-terminal-g2/)
 
-Node-RED node for [m-pression EH-Terminal G2 Wireless Sensor Device](https://www.m-pression.com/solutions/boards/iot-wearables) by [Macnica](https://www.macnica.com/), which supports [Analog Devices' SmartMesh IP](https://www.analog.com/en/products/rf-microwave/wireless-sensor-networks/smartmesh-ip.html) wireless technology.
+Node-RED node for [m-pression EH-Terminal G2 Wireless Sensor Device](https://www.macnica.co.jp/business/semiconductor/macnica_products/boards/133036/) by [Macnica](https://www.macnica.com/), which supports [Analog Devices' SmartMesh IP](https://www.analog.com/en/products/rf-microwave/wireless-sensor-networks/smartmesh-ip.html) wireless technology.
 
 ![Macnica EH-Terminal G2](images/macnica-EH-Terminal_G2_w500.png)
 
